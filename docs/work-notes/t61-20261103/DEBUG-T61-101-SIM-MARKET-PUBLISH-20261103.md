@@ -61,3 +61,10 @@
 - bot-kemi-box（云机 workflow `/home/box/agent-data/workflows/bot-kemi-box/SKILL.md`）已追加 §10「仿针在 101 上架 KEMI 商场」。
 - kemi-market-publish Linux+101 指针草稿：`/workspace/t61-market-publish/kemi-market-publish-linux101-pointer.md`（待推 GitHub skills / grok.skills.vibekits）。
 - 控制机偶发不可达时未能完成 ORICO 证据落盘与 101 token 删除确认；父代理请复检 `rm -f /root/.kemi-publish/token` 与 Mac `/Users/newlink/t61-market-publish/token`。
+
+
+## 收尾（Asia/Shanghai 2026-11-03 ~21:48）
+- 已删控制机 `/Users/newlink/t61-market-publish/token`；101 `/root/.kemi-publish/token` → TOKEN_GONE（仿针 ssh_exec，未杀 vibekits）。
+- 技能：`~/.codex/skills/bot-kemi-box` §10；`kemi-market-publish` Linux+101 指针。
+- GitHub：`caucy2026/skills` `502b958`；`caucy2026/grok.skills.vibekits` `448d828`（含本证据）。
+- 公共货架复检：app90 = 1.9.0-dev.773 / 2773 / 288285284 / a60da697…bd6f2d。
