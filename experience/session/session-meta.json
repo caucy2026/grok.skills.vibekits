@@ -1,0 +1,28 @@
+[
+  {
+    "type": "session_meta",
+    "timestamp": "2026-08-29T14:15:42.774Z",
+    "payload": {
+      "session_id": "01a04dde-32ea-7da2-8b77-2991c5e79baf",
+      "id": "01a04dde-32ea-7da2-8b77-2991c5e79baf",
+      "timestamp": "2026-08-29T14:13:22.794Z",
+      "cwd": "/Users/newlink/kemi/RustDesk",
+      "originator": "Codex Desktop",
+      "cli_version": "0.150.0-alpha.12.2",
+      "source": "vscode",
+      "thread_source": "user",
+      "model_provider": "openai",
+      "base_instructions": {
+        "text": "[truncated for inherit pack; full text in rollout-FULL.jsonl line0]",
+        "provenance": {
+          "type": "model",
+          "model": "gpt-5.6-sol"
+        }
+      },
+      "history_mode": "paginated",
+      "context_window": {
+        "window_id": "01a04dde-32ea-7da2-8b77-29a24c2e396d"
+      }
+    }
+  }
+]

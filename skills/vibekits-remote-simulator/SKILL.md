@@ -1,0 +1,52 @@
+---
+name: vibekits-remote-simulator
+description: "Use when the user gives a 6–16 digit VibeKits device ID and asks to debug that remote computer/device, especially Mac-to-Android-PAD remote ADB, or inspect apps, logs, system, transfers and software through 远程仿真. Also use for uploading and deploying applications to saved SSH/SFTP servers without VibeKits. Device simulation uses VibeKits P2P/relay; server deployment uses saved SSH/SFTP profiles, never a remote-desktop UI."
+---
+
+# VibeKits remote simulator
+
+A device ID and an authorized remote-simulation endpoint are enough to start. The user need not name this skill or say “远程仿真”: “帮我调试远程设备 ID …” and equivalent requests should trigger it. Do not ask for its IP, SSH user, password, private key, relay address, or RustDesk password. The remote device must have enabled simulation and granted the required first-time consent; never bypass that or OS privacy controls.
+
+## Inside VibeKits Harness
+
+**Android/PAD默认路线：仿真按ID连通后，直接使用其远程ADB。** `adbSerial`是本机透传入口，安装、包身份、日志、控件、调试及允许的截图与局域网ADB操作相同；不要求同网，不索取PAD公网/局域网IP，不因Harness某个截图API不可用就停止ADB工作。先验证`get-state`及真实只读调用，沿用[Mac→PAD远程ADB指南](references/mac-pad-remote-adb.md)。
+
+截图方法、逻辑屏与截图标识的区别见指南第3节。分别说明链路、系统权限和固件风险，不能仅凭资源目录`available=false`泛称“ADB不能抓图”。若命中具体固件图形事故，核对指纹和实证、说明受影响路径；不能写成普通ADB权限不足，也不能停止仍可用的日志、包、控件、连接和资源测试。用户已授权的同范围工作直接推进，系统/平台强制边界和具体数据保护风险保留。
+
+
+1. Use the registered VibeKits MCP tools directly. Call `vibekits.simulator.connect` with `{"routingId":"<ID>"}`. Do not launch RustDesk/KEMI remote desktop, a browser tunnel, an external SSH client, or a shell helper merely to connect.
+2. Validate the structured result, not just tool transport success. Require `connected: true`, the requested routing ID, a verified device identity and `transport: p2p_or_relay`. Check `vibekits.simulator.connection_status` when needed. Treat an SSH host-key change or consent failure as a stop, not a reason to try another route.
+3. When tool availability or arguments are unclear, call `vibekits.simulator.catalog` and follow the returned schemas. Use `vibekits.simulator.call` for the remote `vibekits.device.*` tools. Prefer purpose-built process, application, log, crash-report and UI-inspection tools to `vibekits.simulator.ssh_exec`.
+4. For a read-only inventory, obtain installed apps with `vibekits.device.applications` using a bounded limit. Obtain OS/host details from connection metadata or a narrow read-only query when no dedicated tool exists. For a UI defect, compare the installed build, process state, bounded logs, target window/AX state and a diagnostic frame where permission allows; do not infer a cause merely from a successful connection.
+5. Only perform the installation, removal, app control, UI action, transfer or settings change that the current request actually authorizes. An install result alone is not verification: check version, launch state and the reported behavior on the target. Keep the affected app's working functionality and rollback path in scope.
+6. Call `vibekits.simulator.disconnect` on completion or a blocking error. Report what was actually observed, which route/identity was verified, what changed, and which claims remain unverified.
+
+## Windows script execution
+
+After the Windows device ID is connected and SSH is ready, use `vibekits.simulator.ssh_exec` for a short PowerShell script. Encode the script as UTF-16LE Base64 and pass one exact command: `powershell.exe -NoLogo -NoProfile -NonInteractive -EncodedCommand <base64>`. This avoids dependence on whether Windows OpenSSH starts `cmd.exe` or PowerShell and preserves Unicode and quoting. Check `ok`, `exitCode`, `stdout` and `stderr`; do not treat transport success as script success. For a longer `.ps1`, upload the exact file with `vibekits.simulator.upload_file`, execute that returned remote path with `powershell.exe -NoProfile -NonInteractive -File`, and verify the intended output. Do not change execution policy, bypass security prompts or open a desktop session.
+
+Keep the whole workflow silent in the background and independent of Harness chat rendering. Never expose bridge tokens, credentials, private keys or authorization headers. Do not claim to have clicked a button when only a screenshot or source review was possible.
+
+For an external macOS controller that lacks registered Harness MCP tools, read [references/tool-contract.md](references/tool-contract.md) and use the bundled `scripts/invoke.rb` against the local loopback VibeKits bridge. This fallback is not the Harness path and does not require the remote-desktop UI. For an Android PAD controlled from that Mac, follow the tested end-to-end [Mac → PAD remote ADB guide](references/mac-pad-remote-adb.md), including the dynamic local ADB serial, dual-screen targeting, reconnect after a host APK upgrade, and disconnect.
+
+For a brand-new Mac and Android PAD, begin with the [first-install and remote ADB checklist](references/new-mac-pad-first-run.md). It identifies the public KEMI Market download pages, the cloud skill directory, the PAD release gate, and the exact handoff to the remote ADB guide. Do not treat an older market APK as having features that were added only in later device-tested candidates.
+
+For a KEMI Market app upgrade on a remote device, follow [the simulator-based market update workflow](references/market-app-update.md). Check the installed integer build against the current same-platform market build before any download; if already current, report that no installation occurred.
+
+When a device ID returns `Remote desktop is offline`, follow [the channel recovery guide](references/channel-recovery.md) before calling the physical computer offline. Record the failure and the verified recovery in that guide so subsequent colleagues can reproduce the diagnosis.
+
+仿真断联时，复用已授权且身份/指纹匹配的原SSH/SFTP保存连接或登记远程办公恢复入口，不因默认公钥失败就判整机不可用。先对账原事务，恢复后用原仿真ID真实调用复验；正式编译回到仿真通道。认证通过正常安全输入完成，不读取秘密或绕过工具拒绝。详见恢复指南“原远程登录恢复与认证交接”。
+
+When online IDs cannot be called after a network or local App change, read [the network-switch incident recovery](references/network-switch-incident-20260930.md). Verify the current controller bridge before judging the remote device offline; a cluster heartbeat and a simulator connection are separate observations.
+
+For uploading or deploying another application, including an SSH server without VibeKits, read [server file deployment](references/server-file-deployment.md). Use saved SSH/SFTP profile tools for that server; do not require a simulator ID or install VibeKits.
+
+## 远程浏览器操作
+
+完整操作、参数组织、历史实测边界及跨设备注意事项见 [references/remote-browser.md](references/remote-browser.md)。
+
+用户要求像本机一样操作远程浏览器时，先从目标实际catalog核对浏览器/控件能力，再真实导航、读页面、交互及读取控制台/网络结果。系统SSH可用、浏览器启动PID或截图均不证明页面可操作。Windows732实测ui_inspect不支持，Edge启动后普通profile二次导航可能发生ProcessSingleton锁32；不得删除锁、杀用户浏览器、改个人profile或绕过证书。缺能力要报告并补实现，不能声称完整可控。项目研发验收沿用 `docs/acceptance/REMOTE_BROWSER_MCP_ACCEPTANCE_20261021.md`；通过原仿真授权访问仅loopback浏览器协议，关闭只回收自建会话，普通日志不记录凭据/cookie/授权头。
+
+源码新增接口的使用路线（仅当目标真实catalog包含 `vibekits.browser.session` 时）：通过 `simulator.call` 调用该toolId；open传用户网址、调用方唯一requestId及已配置临时工作根（58测试使用D盘），记住返回sessionId。open超时先status查询同requestId；重复同requestId只对账，不重新启动。后续snapshot/tabs/select/newTab/closeTab/click/hover/fill/key/scroll/diagnostics/screenshot都使用真实返回的sessionId、targetId和selector；无完整目录时不得猜测参数。截图立即通过download_file取回，目标只留最新3张；close确认自有进程组退出后清理独立临时profile。不得使用个人浏览器profile，密码交安全输入窗口，证书/网络阻断页面只诊断不自动继续。接口源码或合成回归通过不表示旧客户端已部署，也不代替最终签名包在58的真实网页交互及资源验收。
+
+关闭与对账：修复版在closeTab后有界核对目标确实离开列表；若返回BROWSER_TARGET_CLOSE_PENDING，读取原session的tabs对账，不重复启动或关闭别的页。标签公开结果只含页面身份、标题及去查询参数/片段的网址，不应向模型公开内部CDP端点。Windows退出后自建profile可能短时删除失败；修复版仅在确认自有进程树退出后有界重试，不改ACL/属性，超限保留cleanup_pending和原session。此时按原requestId读取status，再对原session执行close；不得另开浏览器掩盖残留。先核实际部署版本，源码修正不表示旧端已导入；58的737首轮真实证据见项目REMOTE_BROWSER_58_REAL737_FINDINGS_20261021.md。

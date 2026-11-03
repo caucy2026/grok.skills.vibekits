@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "routingId": "5298938227",
+  "bundleId": "com.anysphere.sand",
+  "appName": "Grok Bot",
+  "x": 520,
+  "y": 800,
+  "calibratedAt": "2026-10-31T16:34:45+08:00",
+  "status": "已当次标定-沿用20261029成功点并目视确认当前会话为swdol深度分析",
+  "note": "x/y 禁止写死历史坐标当永久默认。未填 null 时 wrapper 拒绝真实 typeText/enter。",
+  "lastSuccessfulProbe": {
+    "x": 520,
+    "y": 800,
+    "at": "2026-10-29T11:05:58+08:00",
+    "source": "assist-g2 20261029 ChatGPT-STOP + Grok frontmost",
+    "note": "窗口 frame ~491,87,1429x908；沿用上次成功窗口内坐标；窗口移动须重标"
+  },
+  "howToRefreshCalibration": [
+    "1. 控制端：ruby invoke.rb vibekits.simulator.connect '{\"routingId\":\"<当前界面仿真ID>\"}'",
+    "2. 可选截屏：ruby invoke.rb vibekits.simulator.screenshot '{\"routingId\":\"...\"}' 或 call ui_inspect 看底栏输入区。",
+    "3. 在 Grok Bot 聊天窗口内目视/量取输入区中心的窗口内坐标 (x,y)。",
+    "4. 把本文件 x、y 写成整数，calibratedAt 写成当次 ISO8601（Asia/Shanghai），status 改成「已当次标定」。",
+    "5. routingId 必须以目标机 VibeKits 界面当前仿真 ID 为准；登记文档历史 ID 作废。",
+    "6. 投递前再确认窗口未移动/未缩放；移动后必须重标定，勿复用旧 x/y。",
+    "7. 未获用户本轮「发送」明确授权前，只 dry-run，禁止真实 typeText/enter。"
+  ],
+  "invokeUiActionToolId": "vibekits.device.ui_action",
+  "invokeCallToolId": "vibekits.simulator.call"
+}

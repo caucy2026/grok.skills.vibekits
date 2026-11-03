@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>VibeKits Linux browser DOM acceptance</title>
+<style>body{font:20px sans-serif;padding:32px}input,textarea,button{font:inherit;display:block;margin:12px;padding:10px}textarea{width:600px;height:120px}</style>
+<h1>Linux 浏览器真实输入验收</h1>
+<p>仅本任务合成数据；不读取账号、Cookie、剪贴板或历史。</p>
+<form id="fixture" data-submits="0" onsubmit="event.preventDefault();this.dataset.submits=String(Number(this.dataset.submits)+1)">
+<label>单行输入<input id="single" aria-label="Synthetic single-line input" autocomplete="off"></label>
+<label>多行输入<textarea id="multi" aria-label="Synthetic multiline input"></textarea></label>
+<input id="upload" aria-label="Synthetic upload" type="file">
+<button id="verify" type="button" onclick="document.getElementById('result').textContent=JSON.stringify({single:document.getElementById('single').value,multi:document.getElementById('multi').value,submits:Number(document.getElementById('fixture').dataset.submits)})">Verify fixture</button>
+<button id="submit-negative" type="submit">Synthetic submit negative control</button></form><pre id="result"></pre></html>
