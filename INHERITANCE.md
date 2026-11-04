@@ -1,3 +1,7 @@
+> **运行时请先读 [`docs/RUNTIME-PATHS.md`](docs/RUNTIME-PATHS.md) 与根 [`README.md`](README.md)。**  
+> 下文 Mac/ORICO 绝对路径为历史继承快照；日常执行宿主 = bot 云机 → 101。合主线：gork.bot协助开发。
+
+
 # vibekits.linux开发 — 完整继承包（gork.bot 2026-11-01）
 
 生成时间：2026-11-01 14:45 Asia/Shanghai
