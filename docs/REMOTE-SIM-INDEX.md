@@ -9,13 +9,20 @@
 3. tool-bridge：`toolId`（不是 `name`）→ `connect` →（目标 UI consent）→ `ssh_exec` / `upload_file` → `disconnect`
 4. **禁止**杀 101 vibekits；consent 禁止旁路
 
-默认 RID：**7634801763**（101）。其它设备换用户给的 routingId，先摸底。
+默认 RID：**7634801763**（101，`mp730-156`）。其它设备换用户给的 routingId，先摸底。
+
+上架 KD（路径 B：仿针 → Bearer → `linuxpkg` → complete → `apps/update`）：[`KEMI-MARKET-101.md`](KEMI-MARKET-101.md) · `bot-kemi-box` §10。  
+Common 屏保通道不是仿真、也不是 KD：[`COMMON-RELEASE.md`](COMMON-RELEASE.md)。  
+从零搭 Bot：[`GORK-BOT-HANDOFF.md`](GORK-BOT-HANDOFF.md)。
 
 ## 关键文件（本仓）
 
 | 路径 | 内容 |
 |---|---|
 | `skills/bot-kemi-box/SKILL.md` | 云机编译 + 真机验证 + 仿针 + 商场 §10 |
+| `docs/KEMI-MARKET-101.md` | 同类 101 经仿针上 KD 的单仓入口 |
+| `docs/COMMON-RELEASE.md` | Common 屏保通道（与 KD 分开） |
+| `docs/GORK-BOT-HANDOFF.md` | 从零搭 Grok Bot、Vault、凭证 |
 | `skills/vibekits-remote-simulator/` | 本仓镜像（通用权威仍在 caucy2026/skills） |
 | `skills/vibekits-remote-simulator/scripts/invoke.rb` | 控制端 invoke（若用本仓副本） |
 | `skills/vibekits-remote-simulator/references/*` | 通道恢复、consent、市场更新、Windows/Mac 事故 |

@@ -1,6 +1,6 @@
 # 本仓 skills 索引
 
-安装：把目录复制到你们的 skills 根（Codex：`~/.codex/skills/`；其它代理按其约定）。互相引用用 **GitHub raw**。
+安装：把目录复制到你们代理的 skills 根。互相引用用 **GitHub raw**，不要写死控制机本机目录。
 
 | 目录 | 用途 | raw 根 |
 |---|---|---|
@@ -13,3 +13,12 @@
 
 通用商场 / Common / Apple 等：**不要**整份拷进本仓，直接链到  
 https://github.com/caucy2026/skills
+
+## 同事入口互链
+
+| 要做的事 | 本仓 | 权威 raw |
+|---|---|---|
+| 从零搭 Grok Bot | [`docs/GORK-BOT-HANDOFF.md`](GORK-BOT-HANDOFF.md) | `vibekits-remote-simulator` |
+| Common 默认发布 | [`docs/COMMON-RELEASE.md`](COMMON-RELEASE.md) | <https://raw.githubusercontent.com/caucy2026/skills/main/newlink-common-release/scripts/publish_common.py> · <https://raw.githubusercontent.com/caucy2026/skills/main/newlink-common-release/references/release-contract.md> |
+| 同类 101 上 KD | [`docs/KEMI-MARKET-101.md`](KEMI-MARKET-101.md) · `bot-kemi-box` §10 | <https://raw.githubusercontent.com/caucy2026/skills/main/kemi-market-publish/SKILL.md> · <https://raw.githubusercontent.com/caucy2026/skills/main/kemi-market-publish/references/release-contract.md> |
+| 远程仿真 | [`docs/REMOTE-SIM-INDEX.md`](REMOTE-SIM-INDEX.md) | <https://raw.githubusercontent.com/caucy2026/skills/main/vibekits-remote-simulator/scripts/invoke.rb> |
