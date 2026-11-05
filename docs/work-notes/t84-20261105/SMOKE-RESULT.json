@@ -1,0 +1,71 @@
+{
+  "time_asia_shanghai": "2026-11-05 08:26:30 +0800 Asia/Shanghai",
+  "rule": "t84u",
+  "device": {
+    "hostname": "mp730-156",
+    "routingId": "7634801763",
+    "os": "Ubuntu 20.04.5 LTS"
+  },
+  "controller": "vk-u20-amd64-772-run",
+  "package_name_planned": "com.caucy.vibekits.arm64",
+  "artifact": {
+    "deb": "/workspace/vk-linux773/out/dual/VibeKits-1.9.0-dev.773-linux-arm64.deb",
+    "bytes": 263499874,
+    "sha256": "b8801bad4b3e9093e13fa678122dfa73eed0fe0849d6399a4f99d26c98615c6b",
+    "dpkg_version": "1.9.0~dev.773+2773",
+    "arch": "arm64",
+    "freeze_src_sha": "a580359bd06cd295daf874b114d0b41f081b6d4e",
+    "binary_sha256": "77bd66bdede925a77fb1f382d7b530e1031af2509543a427fa9899116316c947",
+    "binary_buildid": "85df6630e5bb06eecf45b59b1087197ccb5dc3e5"
+  },
+  "steps": {
+    "heal_controller": "PASS",
+    "connect_101": "PASS",
+    "upload_deb": "PASS",
+    "bypass_unpack": "PASS",
+    "cold_start_short_live": "FAIL"
+  },
+  "smoke_method": "dpkg-deb -x → /opt/vibekits-773-arm64-smoke/opt-vibekits (NO dpkg -i; NO overwrite /opt/vibekits)",
+  "production_untouched": {
+    "pid": 541356,
+    "path": "/opt/vibekits/vibekits",
+    "dpkg": "1.9.0~dev.772+2772",
+    "alive_after_smoke": true
+  },
+  "fail_reason": {
+    "code": "LIBSTDCXX_TOO_OLD",
+    "detail": "773 vibekits requires GLIBCXX_3.4.29 and CXXABI_1.3.13; 101 host libstdc++6 10.5.0-1ubuntu1~20.04 max GLIBCXX_3.4.28 / CXXABI_1.3.12 (Focal). Deb does not bundle libstdc++. Production 772 runs because it was built against Focal-compatible toolchain.",
+    "log_excerpt": "/lib/aarch64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by .../vibekits); CXXABI_1.3.13 not found (required by libaudioplayers_linux_plugin.so)"
+  },
+  "create_gate": {
+    "CREATE_attempted": false,
+    "CREATE_completed": false,
+    "app_id": null,
+    "shelf_listed": false,
+    "blocked_by": "t84u: CREATE only after 101 smoke PASS"
+  },
+  "token_cleanup": "no /tmp/kemi*token present; none created this turn",
+  "evidence_files": [
+    "connect.err",
+    "connect.json",
+    "heal-strong2.tail.txt",
+    "post-smoke-prod-alive.json",
+    "preflight.err",
+    "preflight.json",
+    "smoke-bypass.err",
+    "smoke-bypass.json",
+    "smoke-glibc-probe.err",
+    "smoke-glibc-probe.json",
+    "smoke-host-libstdcxx.err",
+    "smoke-host-libstdcxx.json",
+    "upload-smoke-script.json",
+    "upload.err",
+    "upload.json"
+  ],
+  "next": [
+    "Rebuild arm64 773+ on Ubuntu 20.04 / manylinux-focal sysroot OR ship bundled libstdc++.so.6 (≥GLIBCXX_3.4.29) inside /opt/vibekits/lib with RPATH/LD_LIBRARY_PATH",
+    "Re-run bypass smoke on 101 until short-live PASS",
+    "Only then CREATE com.caucy.vibekits.arm64 (Vault Bearer → Path B)"
+  ],
+  "note": "gork.bot协助开发"
+}
