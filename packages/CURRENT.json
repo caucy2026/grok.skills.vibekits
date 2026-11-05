@@ -1,38 +1,60 @@
 {
-  "note": "gork.bot协助开发 — pointers only; binaries live on GitHub Releases (not in git)",
+  "note": "gork.bot协助开发 — pointers only; binaries live on GitHub Releases (not in git). All materials under github.com/caucy2026.",
   "product": "VibeKits Linux",
   "version": "1.9.0-dev.773",
   "version_code": 2773,
   "git_sha": "a580359bd06cd295daf874b114d0b41f081b6d4e",
   "release_tag": "vibekits-linux-1.9.0-dev.773-t58",
   "release_url": "https://github.com/caucy2026/grok.skills.vibekits/releases/tag/vibekits-linux-1.9.0-dev.773-t58",
+  "guide": "https://github.com/caucy2026/grok.skills.vibekits/blob/main/START-HERE.md",
   "unified_tar": {
     "name": "VibeKits-Linux-1.9.0-dev.773.tar.gz",
     "bytes": 548181962,
     "sha256": "0b6c301f93343a074b782d6bebf4160283ff2f99c1ad9d8d109d1f7e13259f67",
-    "download": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/VibeKits-Linux-1.9.0-dev.773.tar.gz"
+    "download": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/VibeKits-Linux-1.9.0-dev.773.tar.gz",
+    "role": "app90 mall unified + dual debs inside"
   },
   "amd64_deb": {
     "name": "VibeKits-1.9.0-dev.773-linux-amd64.deb",
     "bytes": 288285284,
     "sha256": "a60da6979d3adc693123a6f2325df5732b8b9816c7d6bb90ed036be591bd6f2d",
-    "download": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/VibeKits-1.9.0-dev.773-linux-amd64.deb"
+    "download": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/VibeKits-1.9.0-dev.773-linux-amd64.deb",
+    "role": "box controller / x86_64 devices"
   },
   "arm64_deb": {
     "name": "VibeKits-1.9.0-dev.773-linux-arm64.deb",
     "bytes": 263499874,
     "sha256": "b8801bad4b3e9093e13fa678122dfa73eed0fe0849d6399a4f99d26c98615c6b",
-    "download": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/VibeKits-1.9.0-dev.773-linux-arm64.deb"
+    "download": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/VibeKits-1.9.0-dev.773-linux-arm64.deb",
+    "role": "legacy unbundled; FAIL on Focal 101 (GLIBCXX_3.4.29) — prefer arm64_focalrt"
   },
-  "install_sh": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/install.sh",
-  "sha256sums": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/SHA256SUMS",
-  "freeze": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/FREEZE.txt",
+  "arm64_focalrt_deb": {
+    "name": "VibeKits-1.9.0-dev.773-linux-arm64-focalrt.deb",
+    "bytes": 167302684,
+    "sha256": "5fe2cfd5d030398c70951164e57114ebab9d6d5c46a100b0ab46fa76c2c239dc",
+    "download": "https://github.com/caucy2026/grok.skills.vibekits/releases/download/vibekits-linux-1.9.0-dev.773-t58/VibeKits-1.9.0-dev.773-linux-arm64-focalrt.deb",
+    "role": "101 / Ubuntu 20.04 aarch64 runnable (bundled libstdc++)",
+    "status": "on_release"
+  },
   "kemi_store_app90": {
     "title": "VibeKits Linux",
     "package_name": "com.caucy.vibekits",
     "os_type": "linux",
+    "app_id": 90,
     "artifact": "unified_tar",
-    "policy": "do-not-create-second-arch-shelf; do-not-overwrite-app90-with-arm64-only-deb"
+    "policy": "do-not-overwrite-app90-with-arm64-only-deb"
   },
-  "updated": "2026-11-04T09:40:00+08:00"
+  "kemi_store_app106_arm64": {
+    "title": "VibeKits Linux arm64",
+    "package_name": "com.caucy.vibekits.arm64",
+    "os_type": "linux",
+    "app_id": 106,
+    "version_name": "1.9.0-dev.773",
+    "version_code": 2773,
+    "artifact": "arm64_focalrt_deb",
+    "cdn": "https://cdn.newlink-sz.com/kemiAppStore/linuxpkg/2026/11/1793839701798_ac917449_VibeKits-1_9_0-dev_773-linux-arm64-focal.deb",
+    "bytes": 167302684,
+    "sha256": "5fe2cfd5d030398c70951164e57114ebab9d6d5c46a100b0ab46fa76c2c239dc"
+  },
+  "updated": "2026-11-05T09:15:00+08:00"
 }

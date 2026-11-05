@@ -1,2 +1,4 @@
-a60da6979d3adc693123a6f2325df5732b8b9816c7d6bb90ed036be591bd6f2d  vibekits_amd64.deb
-b8801bad4b3e9093e13fa678122dfa73eed0fe0849d6399a4f99d26c98615c6b  vibekits_arm64.deb
+a60da6979d3adc693123a6f2325df5732b8b9816c7d6bb90ed036be591bd6f2d  VibeKits-1.9.0-dev.773-linux-amd64.deb
+b8801bad4b3e9093e13fa678122dfa73eed0fe0849d6399a4f99d26c98615c6b  VibeKits-1.9.0-dev.773-linux-arm64.deb
+5fe2cfd5d030398c70951164e57114ebab9d6d5c46a100b0ab46fa76c2c239dc  VibeKits-1.9.0-dev.773-linux-arm64-focalrt.deb
+0b6c301f93343a074b782d6bebf4160283ff2f99c1ad9d8d109d1f7e13259f67  VibeKits-Linux-1.9.0-dev.773.tar.gz

@@ -1,5 +1,7 @@
 # 远程仿真资料索引
 
+零基础路径是根目录 [`START-HERE.md`](../START-HERE.md)。invoke 的 raw 仍在 [caucy2026/skills](https://github.com/caucy2026/skills)（`vibekits-remote-simulator/scripts/invoke.rb`）。
+
 **gork.bot协助开发** · 脚本一律 **GitHub raw**，禁止本机技能绝对路径。
 
 ## 最短成功路径（云机 → 101）

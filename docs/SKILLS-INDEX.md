@@ -4,6 +4,7 @@
 
 | 目录 | 用途 | raw 根 |
 |---|---|---|
+| `vibekits-box-onboard` | 空 bot / 新同事：下载→云机部署→设置→仿针（导读可执行版） | `…/skills/vibekits-box-onboard/` |
 | `bot-kemi-box` | 云机编译 / 101 仿针 / ABCD·consent·tool-bridge / 商场 §10 | `…/grok.skills.vibekits/main/skills/bot-kemi-box/` |
 | `gork` | 仿真投异账号 Grok Bot | `…/skills/gork/` |
 | `vibekits-remote-simulator` | 远程仿真（本仓有副本；**权威**优先 caucy2026/skills） | skills 仓或本仓 |
@@ -18,6 +19,7 @@ https://github.com/caucy2026/skills
 
 | 要做的事 | 本仓 | 权威 raw |
 |---|---|---|
+| 零基础全链路 | [`../START-HERE.md`](../START-HERE.md) | `vibekits-box-onboard`（本仓）+ skills 仓 invoke raw |
 | 从零搭 Grok Bot | [`docs/GORK-BOT-HANDOFF.md`](GORK-BOT-HANDOFF.md) | `vibekits-remote-simulator` |
 | Common 默认发布 | [`docs/COMMON-RELEASE.md`](COMMON-RELEASE.md) | <https://raw.githubusercontent.com/caucy2026/skills/main/newlink-common-release/scripts/publish_common.py> · <https://raw.githubusercontent.com/caucy2026/skills/main/newlink-common-release/references/release-contract.md> |
 | 同类 101 上 KD | [`docs/KEMI-MARKET-101.md`](KEMI-MARKET-101.md) · `bot-kemi-box` §10 | <https://raw.githubusercontent.com/caucy2026/skills/main/kemi-market-publish/SKILL.md> · <https://raw.githubusercontent.com/caucy2026/skills/main/kemi-market-publish/references/release-contract.md> |
