@@ -1,6 +1,8 @@
 # Gork / Grok Bot 配置与交接
 
-**gork.bot协助开发** · 2026-11-04 起硬规则：**日常工作不依赖控制机 Mac**。
+> **零基础全链路改走根目录 [`START-HERE.md`](../START-HERE.md) + 技能 `vibekits-box-onboard`。** 本文保留 Vault / Common / KD 凭证与异账号 gork 细节。
+
+**gork.bot协助开发** · 2026-11-04 起硬规则：**日常工作不依赖控制机 Mac**。仿真技能正文以 [caucy2026/skills](https://github.com/caucy2026/skills) 为准，勿在本仓重复维护。
 
 三条同事路径（只看本仓）：
 
@@ -12,8 +14,8 @@
 
 ## 从零搭 Grok Bot 同事清单
 
-1. **装本仓 skills。** 克隆 `https://github.com/caucy2026/grok.skills.vibekits`，把 `skills/bot-kemi-box` 与 `skills/gork` 拷进你们代理的 skills 根。不要写死某台控制机的目录。
-2. **装通用技能（caucy2026/skills，不要整份拷进本仓）。** 执行宿主上要有这三份，互相引用只用 raw：
+1. **装本仓 skills。** 克隆 `https://github.com/caucy2026/grok.skills.vibekits`，把 `skills/vibekits-box-onboard`、`skills/bot-kemi-box` 与 `skills/gork` 拷进你们代理的 skills 根（`cp -a skills/vibekits-box-onboard` 以及另外两份）。不要写死某台控制机的目录。
+2. **装通用技能（caucy2026/skills，不要整份拷进本仓）。** 仿真技能正文以 caucy2026/skills 为准，勿在本仓重复维护。执行宿主上要有这三份，互相引用只用 raw：
    - `vibekits-remote-simulator` — <https://github.com/caucy2026/skills/tree/main/vibekits-remote-simulator>
    - `kemi-market-publish` — <https://github.com/caucy2026/skills/tree/main/kemi-market-publish>
    - `newlink-common-release` — <https://github.com/caucy2026/skills/tree/main/newlink-common-release>

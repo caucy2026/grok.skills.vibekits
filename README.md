@@ -1,6 +1,11 @@
 # grok.skills.vibekits
 
-同事**只认这一仓**：安装包、Gork / Grok Bot 搭建、远程仿真、Common 默认发布、同类 101 上 KD。
+> **零基础请先打开 [`START-HERE.md`](START-HERE.md)**（下载 → 云机部署 → 设置 → 仿针 101）。  
+> 可跑包只在本仓 [Releases](https://github.com/caucy2026/grok.skills.vibekits/releases)。  
+> 仿真 invoke 等通用技能**不重复拷贝**，用 [caucy2026/skills](https://github.com/caucy2026/skills) raw。  
+> 合主线：gork.bot协助开发。
+
+同事所需材料都在 GitHub **`caucy2026`**：本仓放安装包指针、Gork / Grok Bot 搭建、远程仿真索引、Common 默认发布、同类 101 上 KD；仿真技能正文在 [caucy2026/skills](https://github.com/caucy2026/skills)。
 
 合主线 / 提交 / 文档注明：**gork.bot协助开发**。验证 ≠ 编译。禁止杀 101 上的 vibekits。
 
@@ -12,8 +17,8 @@
 | 要找什么 | 先打开 | 说明 |
 |---|---|---|
 | **① vibekits 安装包** | [`docs/PACKAGES.md`](docs/PACKAGES.md) · [`packages/CURRENT.json`](packages/CURRENT.json) · [Releases](https://github.com/caucy2026/grok.skills.vibekits/releases) | Linux **1.9.0-dev.773** 统一 `tar.gz` + amd64/arm64 `.deb`；商场 app90 挂统一包 |
-| **② gork / Grok Bot 配置** | [`docs/GORK-BOT-HANDOFF.md`](docs/GORK-BOT-HANDOFF.md) · [`skills/gork/SKILL.md`](skills/gork/SKILL.md) | 从零搭 Bot：本仓 skills + 通用三技能 + Vault；执行宿主=**bot 云机** |
-| **③ 远程仿真全套** | [`docs/REMOTE-SIM-INDEX.md`](docs/REMOTE-SIM-INDEX.md) · [`skills/bot-kemi-box/SKILL.md`](skills/bot-kemi-box/SKILL.md) §0 · raw `invoke.rb` | ABCD / consent / 101 RID / tool-bridge。同类设备上 KD → [`docs/KEMI-MARKET-101.md`](docs/KEMI-MARKET-101.md) |
+| **② gork / Grok Bot 配置** | [`START-HERE.md`](START-HERE.md) · [`docs/GORK-BOT-HANDOFF.md`](docs/GORK-BOT-HANDOFF.md) · [`skills/gork/SKILL.md`](skills/gork/SKILL.md) | 从零先走导读，再搭 Bot：本仓 skills + 通用三技能 + Vault；执行宿主=**bot 云机** |
+| **③ 远程仿真全套** | [`START-HERE.md`](START-HERE.md) · [`docs/REMOTE-SIM-INDEX.md`](docs/REMOTE-SIM-INDEX.md) · [`skills/bot-kemi-box/SKILL.md`](skills/bot-kemi-box/SKILL.md) §0 · raw `invoke.rb` | 零基础全链路在导读。ABCD / consent / 101 RID / tool-bridge。同类设备上 KD → [`docs/KEMI-MARKET-101.md`](docs/KEMI-MARKET-101.md) |
 | **④ Common 默认发布通道** | [`docs/COMMON-RELEASE.md`](docs/COMMON-RELEASE.md) | Newlink 屏保固定资源（≠ KD 商场）；用户名 `common`，密码只 Vault |
 
 技能总表：[`docs/SKILLS-INDEX.md`](docs/SKILLS-INDEX.md)。继承背景：[`INHERITANCE.md`](INHERITANCE.md)（其中控制机本机路径为**历史**记录，运行时一律改用本表与 GitHub raw）。
@@ -49,6 +54,7 @@ invoke：https://raw.githubusercontent.com/caucy2026/skills/main/vibekits-remote
 ```bash
 git clone https://github.com/caucy2026/grok.skills.vibekits.git
 # SKILLS_ROOT = 你们代理的 skills 根，不要写死某台控制机的目录
+cp -a grok.skills.vibekits/skills/vibekits-box-onboard "$SKILLS_ROOT/"
 cp -a grok.skills.vibekits/skills/bot-kemi-box "$SKILLS_ROOT/"
 cp -a grok.skills.vibekits/skills/gork "$SKILLS_ROOT/"
 # 通用技能从 caucy2026/skills 装，勿整仓拷进本仓：
@@ -70,4 +76,4 @@ tar -xzf VibeKits-Linux-1.9.0-dev.773.tar.gz
 cd VibeKits-Linux-1.9.0-dev.773 && sh install.sh
 ```
 
-更新：2026-11-04（t72 · gork.bot协助开发 · Common / KD 单仓入口）
+更新：2026-11-05（t88 · gork.bot协助开发 · 零基础导读 START-HERE）
